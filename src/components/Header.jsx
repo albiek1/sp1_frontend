@@ -16,13 +16,6 @@ function Header({facade, loggedIn}){
                         </NavLink>
                     </li>
                 )}
-                {facade.hasUserAccess('admin', loggedIn) && (
-                    <li>
-                        <NavLink activeClassName="active" to="/createEvent">
-                            CreateEvent
-                        </NavLink>
-                    </li>
-                )}
             </ul>
         </div>
     );

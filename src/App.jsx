@@ -10,8 +10,6 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Profile from './components/Profile';
 import NoMatch from './components/NoMatch';
-import CreateEvent from './components/CreateEvent';
-import ViewEvents from './components/ViewEvents';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -40,14 +38,6 @@ function App() {
           <Route path="/profile">
             {facade.hasUserAccess('user', loggedIn) &&
             <Profile facade={facade} setErrorMessage={setErrorMessage}/>}
-          </Route>
-          <Route path="/viewEvents">
-            {facade.hasUserAccess('user', loggedIn) &&
-            <ViewEvents facade={facade} setErrorMessage={setErrorMessage}/>}
-          </Route>
-          <Route path="/createEvent">
-            {facade.hasUserAccess('admin', loggedIn) &&
-            <CreateEvent facade={facade} setErrorMessage={setErrorMessage}/>}
           </Route>
           <Route>
             <NoMatch/>
