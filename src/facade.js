@@ -52,22 +52,6 @@ let apiFacade = () =>
             });
     }
 
-    const createEvent = (location, dish, time, price, setErrorMessage) =>
-    {
-        const options = makeOptions("POST", false, {Location: location, Dish: dish, Time: time, Price: price});
-        return fetch(URL + "/api/createEvent", options)
-        .then(handleHttpErrors)
-        .catch((err) =>
-        {
-            if (err.status)
-            {
-                err.fullError.then((e) => setErrorMessage(e.code + ': ' + e.message));
-            }else{
-                setErrorMessage('Network error');
-            }
-        });
-    }
-
     // Security funktionalitet
 
     const setToken = (token) =>
@@ -145,7 +129,6 @@ let apiFacade = () =>
         getToken,
         loggedIn,
         login,
-        createEvent,
         logout,
         getUserRoles,
         getUserName,
