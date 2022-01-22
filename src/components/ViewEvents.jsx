@@ -9,3 +9,5 @@ function ViewEvents(facade, setErrorMessage){
     </>
     );
 }
+
+export default ViewEvents;

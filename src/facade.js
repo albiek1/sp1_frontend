@@ -54,7 +54,7 @@ let apiFacade = () =>
 
     const createEvent = (location, dish, time, price, setErrorMessage) =>
     {
-        const options = makeOptions("POST", true, {Location: location, Dish: dish, Time: time, Price: price});
+        const options = makeOptions("POST", false, {Location: location, Dish: dish, Time: time, Price: price});
         return fetch(URL + "/api/createEvent", options)
         .then(handleHttpErrors)
         .catch((err) =>
