@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/dat3-startcode";
+const URL = "https://digibugs.dk/devops-starter-1.0.1/";
 
 function handleHttpErrors(res)
 {
