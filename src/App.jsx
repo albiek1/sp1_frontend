@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import Profile from './components/Profile';
 import NoMatch from './components/NoMatch';
+import GetAllObjects from './components/GetAllObjects';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,6 +35,9 @@ function App() {
           facade={facade}
           setErrorMessage={setErrorMessage}
           />
+          </Route>
+          <Route path="/viewconfs">
+            <GetAllObjects facade={facade} setErrorMessage={setErrorMessage}/>
           </Route>
           <Route path="/profile">
             {facade.hasUserAccess('user', loggedIn) &&

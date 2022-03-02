@@ -12,7 +12,7 @@ function handleHttpErrors(res)
 let apiFacade = () =>
 {
 
-    const fetchData = (endpoint, updateAction, SetErrorMessage) =>
+    const fetchData = (endpoint, updateAction, setErrorMessage) =>
     {
         const options = makeOptions("GET", true); //True add's the token
         return fetch(URL + "/api/" + endpoint, options)
@@ -23,9 +23,10 @@ let apiFacade = () =>
                 if (err.status)
                 {
                     console.log(err)
-                    err.fullError.then(e => SetErrorMessage(e.code + ": " + e.message))
+                    err.fullError.then(e => setErrorMessage(e.code + ": " + e.message))
                 }
-                else { SetErrorMessage("Network error"); }
+                else { setErrorMessage("Network error");
+                }
             })
     }
 
@@ -50,6 +51,22 @@ let apiFacade = () =>
                     setErrorMessage('Network error');
                 }
             });
+    }
+
+    const putData = (data, url, setErrorMessage) =>
+    {
+        const options = makeOptions("POST", false, {data});
+        return fetch(URL + url, options)
+        .then(handleHttpErrors)
+        .catch((err) =>
+        {
+            if(err.status)
+            {
+                err.fullError.then((e) => setErrorMessage(e.code + ': ' + e.message));
+            }else{
+                setErrorMessage('Network error');
+            }
+        });
     }
 
     // Security funktionalitet

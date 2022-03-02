@@ -16,6 +16,11 @@ function Header({facade, loggedIn}){
                         </NavLink>
                     </li>
                 )}
+                <li>
+                    <NavLink activeClassName="active" to="/viewconfs">
+                        View  conferences
+                    </NavLink>
+                </li>
             </ul>
         </div>
     );
